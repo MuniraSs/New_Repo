@@ -1,5 +1,5 @@
 Idea : 
-Tswaiq is a platform that combins the products owners with marketers
+Tasweeq is a platform that combins the products owners with marketers
 
 
 Featuers: 
