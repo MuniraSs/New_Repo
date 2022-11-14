@@ -21,15 +21,25 @@ def register (request : HttpRequest):
         new_user.save()
 
         #creating the profile
-        user_profile = Profile(user=new_user, age=request.POST["age"], address=request.POST["address"])
-        user_profile.save()
+        #user_profile = Profile(user=new_user, age=request.POST["age"], address=request.POST["address"])
+        #user_profile.save()
       return render(request, "registration.html")
 
 #login 
-def login (request : HttpRequest):
+def login_user (request : HttpRequest):
+  msg = ""
+  if request.method == "POST":
+        user = authenticate(request, username=request.POST["username"], password=request.POST["password"])
+        
+        if user:
+            login(request, user)
+            return redirect("marketer:home")
+        else:
+            msg = "User Not Found , check your credentials"
+
+  return render(request, "login.html", {"msg" : msg})
 
 
-  return render(request, "login.html")
 
 def list_chances (request : HttpRequest):
 
