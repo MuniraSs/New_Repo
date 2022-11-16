@@ -19,6 +19,8 @@ def register (request : HttpRequest):
         #creating the user
         new_user = User.objects.create_user(username=request.POST["username"], email= request.POST["email"],  password=request.POST["password"])
         new_user.save()
+        return redirect("marketer:login")
+
 
         #creating the profile
         #user_profile = Profile(user=new_user, age=request.POST["age"], address=request.POST["address"])

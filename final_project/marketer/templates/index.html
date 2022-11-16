@@ -51,21 +51,16 @@
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <!--<li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>-->
           <!--<li><a class="nav-link scrollto" href="#team">Team</a></li>-->
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>Opportunities</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+              <li><a href="{% url 'marketer:add-request' %}"> create a new marketing request</a></li>
+              <li class="dropdown"><a href="!#"><span>Current Opportunities </span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
+                  <li><a href="{% url 'marketer:all-requests' %}"> current open request</a></li>
+                  <li><a href="#">The closed requests</a></li>
+
                 </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+ 
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -252,7 +247,7 @@
 
         <div class="section-title" data-aos="zoom-out">
           <h2>Testimonials</h2>
-          <p>What they are saying about us</p>
+          <p>acknowledgments</p>
         </div>
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
@@ -262,12 +257,10 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  نشكر اكاديمية طويق على اتاحة هذه الفرصة لنا                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="{% static 'img/testimonials/testimonials-1.jpg'%}" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
+                <img src="{% static 'img/testimonials/testimonials-1.png'%}" class="testimonial-img" alt="">
+
               </div>
             </div><!-- End testimonial item -->
 
@@ -275,12 +268,10 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  جزيل الشكر والتقدير للاستاذة علياء .. على جهودها الدائمة والمستمرة في سبيل تيسير الدورة التدريبة لنا                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
+
               </div>
             </div><!-- End testimonial item -->
 
@@ -288,12 +279,10 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+نشكر الاستاذ عقيل العيد جزيل الشكر على هذه الدورة الثرية و الممتعة والتي اكتسبنا من خلالها العديد من المهارات والمعارف                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
+                <img src="{% static 'img/testimonials/testimonials-2.jpg'%}" class="testimonial-img" alt="">
+
               </div>
             </div><!-- End testimonial item -->
 
@@ -301,26 +290,14 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+اشكر الاخوة والاخوات الزملاء بالدورة على الوقت الجميل الذي قضيناه معا في معسكر بايثون                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
+                <img src="!#g" class="testimonial-img" alt="">
+
               </div>
             </div><!-- End testimonial item -->
 
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div>
+
             </div><!-- End testimonial item -->
 
           </div>
