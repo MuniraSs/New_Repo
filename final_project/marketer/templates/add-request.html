@@ -13,11 +13,13 @@
 	        
     		<h1>Create Markting Request</h1>
     		
-    		<form action="" method="POST">
-    		    
+    		<form action="{% url 'marketer:add-request' %}" method="POST">
+				{% csrf_token %}
+    		    <strong class="">{{ msg }}</strong>
+				
     		    <div class="form-group has-error">
     		        <label for="slug">Name <span class="require">*</span> </label>
-    		        <input type="text" class="form-control" name="slug" />
+    		        <input type="text" class="form-control" name="name" />
     		        
     		    </div>
     		    
@@ -39,7 +41,7 @@
     		        <button type="submit" class="btn btn-primary">
     		            Create
     		        </button>
-    		        <button class="btn btn-default">
+    		        <button class="btn btn-default" href="{% url 'marketer:home' %}">
     		            Cancel
     		        </button>
     		    </div>

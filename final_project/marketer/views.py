@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from .models import Profile
+from .models import Request
 
 
 def return_home (request : HttpRequest):
@@ -43,11 +43,36 @@ def login_user (request : HttpRequest):
 
 def list_chances (request : HttpRequest):
 
+    req = Request.objects.all().order_by("name") #to order by name
+    return render(request, "all-requests.html", {"req" : req})
 
-  return render(request, "list_chances.html")
 
 
 def add_markting_request(request : HttpRequest):
 
+    user : User = request.user
+    msg = ""
 
-    return render(request, "add-request.html")
+    if not (user.is_authenticated):
+       return redirect("marketer:home")
+    elif  request.method == "POST":
+      new_request = Request (title=request.POST["title"], name = request.POST["name"], description = request.POST["description"]  )
+      msg = "Request has been sent successfully"
+      new_request.save()
+      #return redirect("marketer:home")
+      
+
+    return render(request, "add-request.html" , {"msg" : msg}  )
+
+def request_detail (request : HttpRequest, request_id : int):
+    try:
+        req = Request.objects.get(id=request_id)
+        #comments = Comment.objects.filter(post = post)
+    except:
+        return render(request , "not_found.html")
+
+    return render(request, "request_detail.html", {"req" : req})
+
+
+
+

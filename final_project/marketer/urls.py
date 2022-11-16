@@ -5,9 +5,8 @@ app_name = "marketer"
 
 urlpatterns = [
     path("home/", views.return_home, name="home"),
-    path("list_chances/", views.list_chances, name="list_chances"),
-    path("markting_request/", views.add_markting_request, name="add_markting_request"),
     path("registration/", views.register, name="registration"),
     path("login/", views.login_user, name="login"),
     path("add-request/", views.add_markting_request, name="add-request"),
-    path("all-requests/", views.list_chances, name="all-requests") ] 
+    path("all-requests/", views.list_chances, name="all-requests"),
+    path("request_detail/<request_id>/", views.request_detail, name="request_detail") ] 

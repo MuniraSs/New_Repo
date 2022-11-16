@@ -5,14 +5,15 @@ from django.contrib.auth.models import User
 
 
 
-class request(models.Model):
+class Request (models.Model):
     title = models.CharField(max_length=1024)
-    content = models.TextField()
-    publish_date = models.DateTimeField()
-    is_published = models.BooleanField()
+    name = models.CharField(max_length=1024)
+    description = models.TextField()
+    #publish_date = models.DateTimeField()
+    #is_published = models.BooleanField()
 
 class offer():
-    request = models.ForeignKey(request, on_delete = models.CASCADE) 
+    requestt = models.ForeignKey(Request, on_delete = models.CASCADE) 
     name = models.CharField(max_length=256)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now=True)
