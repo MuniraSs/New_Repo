@@ -9,4 +9,5 @@ urlpatterns = [
     path("login/", views.login_user, name="login"),
     path("add-request/", views.add_markting_request, name="add-request"),
     path("all-requests/", views.list_chances, name="all-requests"),
-    path("request_detail/<request_id>/", views.request_detail, name="request_detail") ] 
+    path("request_detail/<request_id>/", views.request_detail, name="request_detail"),
+    path("request_detail/<request_id>/comment", views.add_comment, name="add_comment") ] 

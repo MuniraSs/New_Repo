@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from .models import Request
+from .models import Request, Offer
 
 
 def return_home (request : HttpRequest):
@@ -58,7 +58,7 @@ def add_markting_request(request : HttpRequest):
     if not (user.is_authenticated):
        return redirect("marketer:home")
     elif  request.method == "POST":
-      new_request = Request (title=request.POST["title"], name = request.POST["name"], description = request.POST["description"]  )
+      new_request = Request (title=request.POST["title"], name = request.POST["name"], description = request.POST["description"] )
       msg = "Request has been sent successfully"
       new_request.save()
       #return redirect("marketer:home")
@@ -69,11 +69,23 @@ def add_markting_request(request : HttpRequest):
 def request_detail (request : HttpRequest, request_id : int):
     try:
         req = Request.objects.get(id=request_id)
-        #comments = Comment.objects.filter(post = post)
+        offers = Offer.objects.filter(requestt = req)
     except:
-        return render(request , "not_found.html")
+       return render(request , "not_found.html")
 
-    return render(request, "request_detail.html", {"req" : req})
+    return render(request, "request_detail.html", {"req" : req ,"offers" : offers }) # , 
+
+
+def add_comment(request: HttpRequest, request_id:int):
+    
+    requestt = Request.objects.get(id=request_id)
+
+    if request.method == "POST":
+        new_comment = Offer(requestt=requestt, name = request.POST["name"], content=request.POST["content"])
+        new_comment.save()
+
+    
+    return redirect("all_request.html", requestt.id)
 
 
 

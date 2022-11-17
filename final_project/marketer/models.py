@@ -12,12 +12,16 @@ class Request (models.Model):
     #publish_date = models.DateTimeField()
     #is_published = models.BooleanField()
 
-class offer():
-    requestt = models.ForeignKey(Request, on_delete = models.CASCADE) 
-    name = models.CharField(max_length=256)
-    content = models.TextField()
-    created_at = models.DateTimeField(auto_now=True)
-    amount = models.CharField(max_length=256)
+class Offer(models.Model):
+  requestt = models.ForeignKey(Request, on_delete = models.CASCADE) 
+  name = models.CharField(max_length=256)
+  content = models.TextField()
+ # created_at = models.DateTimeField(auto_now=True)
+  #amount = models.CharField(max_length=256)
+
+
+
+
 
 #creating a profile for the user
 class Profile(models.Model):

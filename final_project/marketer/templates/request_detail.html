@@ -32,46 +32,64 @@
                     </article>
                     <!-- Comments section-->
                     <section class="mb-5">
-                        <div class="card bg-light">
-                            <div class="card-body">
+                        <div class="form-group card bg-light">
+                            <div class="form-group card-body">
+                                <h2>Add your comment</h2>
                                 <!-- Comment form-->
-                                <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
+                                <form class=" form-group mb-4" action="{% url 'marketer:add_comment' req.id %}" method="POST">
+                                    {% csrf_token %}
+                                <div class="form-group">
+                                <label class="form-label">Your Name:</label>
+                                <input type="text" name="name" class="form-control" /> </div>
+                                
+                                <div class="form-group">   
+                                <label class="form-label">Your Comment:</label>                             
+                                <textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!" name="content"></textarea>
+                                <input type="submit" class="btn btn-primary mt-2" value="New Comment" ></div></form>
                                 <!-- Comment with nested comments-->
+                                <h2>Comments</h2>
                                 <div class="d-flex mb-4">
+                                    
                                     <!-- Parent comment-->
-                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                                     <div class="ms-3">
-                                        <div class="fw-bold">Commenter Name</div>
-                                        If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
-                                        <!-- Child comment 1-->
-                                        <div class="d-flex mt-4">
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="{% static 'img/favicon.png' %}" alt="..." /></div>
-                                            <div class="ms-3">
-                                                <div class="fw-bold">Commenter Name</div>
-                                                And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
-                                            </div>
+                                        
+                                            {% for offer in offers %}
+                                        <div class="form-group border rounded p-3 mt-3">
+                                            <div class="fw-bold">Commenter Name</div>
+                                            <h5>{{ offer.name }}</h5>
+                                            <div class="fw-bold">Comment</div>
+                                            <p>{{ offer.content }}</p>
+                                            <span>{{ comment.created_at }}</span>
                                         </div>
-                                        <!-- Child comment 2-->
-                                        <div class="d-flex mt-4">
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                            <div class="ms-3">
-                                                <div class="fw-bold">Commenter Name</div>
-                                                When you put money directly to a problem, it makes a good headline.
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
+                                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                       
+                                                  
+
                                 </div>
-                                <!-- Single comment-->
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                    <div class="ms-3">
-                                        <div class="fw-bold">Commenter Name</div>
-                                        When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
-                                    </div>
-                                </div>
-                            </div>
+                                
+                             </div>
                         </div>
                     </section>
+
+                    
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">
@@ -104,6 +122,21 @@
                     </div>
                 </div>
             </div>
+
+       
+
+
+            <!--{% for offer in offer %}
+                <div class="border rounded p-3 mt-3">
+                    <h5>{{ offer.name }}</h5>
+                    <p>{{ offer.content }}</p>
+                    <span>{{ offer.created_at }}</span>
+                </div>
+            {% endfor %}-->
+            
+            <hr/>
+        
+        </div>
         </div>
 
         {% endblock %}
