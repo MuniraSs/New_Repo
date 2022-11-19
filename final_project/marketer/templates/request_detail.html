@@ -17,7 +17,7 @@
                             <!-- Post title-->
                             <h1 class="fw-bolder mb-1">{{ req.title }}</h1>
                             <!-- Post meta content-->
-                            <div class="text-muted fst-italic mb-2">Posted on January 1, 2022 by Start Bootstrap</div>
+                            <div class="text-muted fst-italic mb-2">posted by {{req.user}}</div>
                             <!-- Post categories-->
                             <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
                             <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
@@ -28,6 +28,7 @@
                         <section class="mb-5">
                             <h2 class="fw-bolder mb-4 mt-5">{{ req.name }}</h2>
                             <p class="fs-5 mb-4">{{ req.description }}.</p>
+                            <!--<p class="fs-5 mb-4">{{ req.image }}.</p>-->
                         </section>
                     </article>
                     <!-- Comments section-->
@@ -101,6 +102,14 @@
                                 <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
                                 <button class="btn btn-primary" id="button-search" type="button">Go!</button>
                             </div>
+                            <div>
+                            {% if "search"  in  request.GET %}
+                            <h2> Search results for "{{ request.GET.search }}": </h2>
+                            {% endif %}
+                            </div>
+
+
+
                         </div>
                     </div>
                     <!-- Categories widget-->
